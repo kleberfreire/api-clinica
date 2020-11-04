@@ -1,18 +1,18 @@
 const db = require('./connectDB')
 
-const doc = db.collection('consulta').doc()
+const doc = db.collection('consulta').doc('C6Sl0WwwYLlRVXEoEmI4')
 
-const cliente = 'QAJqIM52KbcxV3cMrB8d'
+const cliente = 'CiTPSsPr2duhjsfkaOSe'
 
 const clienteRef = db.collection('cliente').doc(cliente)
 
-const medico = 'lLOXcRDHQjm9yVI7k4CV'
+const medico = 'qhSkdqgyUWmQ6nYLaQaU'
 
 const medicoRef = db.collection('medico').doc(medico)
 
 
-doc.set({
-  Observacao: "kkkkkkkkkkk",
+doc.update({
+  Observacao: "jjjjjjjjj",
   cliente: clienteRef,
   data: "30/11/2020",
   hora: "09:00",
