@@ -1,0 +1,20 @@
+- funcionario
+- medico
+- consulta
+
+  -- funcionario 
+    -nome
+    -email
+    -telefone
+  
+  -- medico
+    -nome
+    -especialidade
+    -CRM
+
+  --consulta
+    -data 
+    -hora
+    -medico
+    -paciente
+    -Observacao      
