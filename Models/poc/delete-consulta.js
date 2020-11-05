@@ -14,3 +14,4 @@ const medicoRef = db.collection('medico').doc(medico)
 doc.delete().then(snap => {
   console.log(snap)
 })
+

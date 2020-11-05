@@ -1,4 +1,4 @@
-const db = require('./connectDB')
+const db = require('../connectDB')
 
 const consultas = db.collection('consulta').get()
 
