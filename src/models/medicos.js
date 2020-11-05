@@ -14,6 +14,7 @@ const findAll = async () => {
       ...doc.data()
     })
   })
+  return medico
 }
 
 

@@ -15,7 +15,7 @@ const findAll = async () => {
     })
   })
 
-  console.log(clientes)
+  return clientes
 }
 
 const findAllPaginated = async ({ pageSize = 10, startAfter = '' }) => {

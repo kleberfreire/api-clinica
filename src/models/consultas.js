@@ -56,19 +56,19 @@ const findAllPaginated = async ({ pageSize = 10, startAfter = '' }) => {
         ...doc.data()
       })
       
-        for await (consulta of consultas) {
+        // for await (consulta of consultas) {
 
-          const cliente = await consulta.cliente.get()
-          const medico = await consulta.medico.get()
-          const clienteAux = { ...cliente.data()}
-          const medicoAux = {...medico.data()}
-          consultaFilted.push({
-            ...consulta,
-            cliente: clienteAux,
-            medico: medicoAux,
+        //   const cliente = await consulta.cliente.get()
+        //   const medico = await consulta.medico.get()
+        //   const clienteAux = { ...cliente.data()}
+        //   const medicoAux = {...medico.data()}
+        //   consultaFilted.push({
+        //     ...consulta,
+        //     cliente: clienteAux,
+        //     medico: medicoAux,
 
-          })
-        }
+        //   })
+        // }
     }
       total++
     })
