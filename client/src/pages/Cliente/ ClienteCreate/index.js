@@ -5,6 +5,8 @@ import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
+import api from '../../../services/api'
+
 import Layout from '../../Layout'
 
 const useStyles = makeStyles((theme) => ({
@@ -18,6 +20,22 @@ export default function AddressForm() {
   const [nome, setNome] = useState('')
   const [email, setEmail] = useState('')
   const [telefone, setTelefone] = useState('')
+
+
+  const handleSubmit = async() => {
+    const data = {
+      nome: nome,
+      email: email,
+      telefone: telefone,
+    }
+    const response = await api.post('/api/clientes',data) 
+
+    if(response.status === 200) {
+      window.location.href='/cliente'
+    } else {
+      alert('Erro ao cadastrar o cliente')
+    }
+  }
 
 
   return (
@@ -65,15 +83,16 @@ export default function AddressForm() {
         </Grid>
         
         <Grid item xs={12}>
-        <Button
-        type="submit"
-        fullWidth
-        variant="contained"
-        color="primary"
-        className={classes.submit}
-      >
-        cadastrar
-      </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            onClick={handleSubmit}
+          >
+            cadastrar
+          </Button>
         </Grid>
       </Grid>
     </React.Fragment>

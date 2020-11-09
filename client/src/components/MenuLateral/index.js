@@ -22,14 +22,14 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Cliente" />
     </ListItem>
-    <ListItem button component="a" href="/medico/create" >
+    <ListItem button component="a" href="/medico" >
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Medicos" />
     </ListItem>
 
-    <ListItem button component="a" href="/consulta/create" >
+    <ListItem button component="a" href="/consulta" >
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>

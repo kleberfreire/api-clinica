@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
@@ -6,6 +6,8 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Layout from '../../Layout'
+
+import api from '../../../services/api'
 
 const useStyles = makeStyles((theme) => ({
   submit: {
@@ -15,12 +17,31 @@ const useStyles = makeStyles((theme) => ({
 
 export default function AddressForm() {
   const classes = useStyles();
+  const [nome, setNome] = useState('')
+  const [CRM, setCRM] = useState('')
+  const [especialidade, setEspecialidade] = useState('')
+
+  const handleSubmit = async() => {
+    const data = {
+      CRM:CRM,
+      especialidade:especialidade,
+      nome: nome
+    }
+    const response = await api.post('/api/medicos',data) 
+
+    if(response.status === 200) {
+      window.location.href='/medico'
+    } else {
+      alert('Erro ao cadastrar o medico')
+    }
+  }
+
   return (
-    <Layout titlePage="Cliente">
+    <Layout titlePage="Medico">
     
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Fomulario de cadastro de cliente
+        Fomulario de cadastro de medico
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12}>
@@ -31,6 +52,8 @@ export default function AddressForm() {
             label="Digite o seu nome completo"
             fullWidth
             autoComplete="name"
+            value={nome}
+            onChange={e => setNome(e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -40,6 +63,8 @@ export default function AddressForm() {
             label="Digite seu CRM"
             fullWidth
             autoComplete="CRM"
+            value={CRM}
+            onChange={e => setCRM(e.target.value)}
           />
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -50,6 +75,8 @@ export default function AddressForm() {
             label="Digite sua especialidade"
             fullWidth
             autoComplete="especialidade"
+            value={especialidade}
+            onChange={e => setEspecialidade(e.target.value)}
           />
         </Grid>
         
@@ -60,6 +87,7 @@ export default function AddressForm() {
         variant="contained"
         color="primary"
         className={classes.submit}
+        onClick={handleSubmit}
       >
         cadastrar
       </Button>

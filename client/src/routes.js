@@ -24,12 +24,7 @@ export default function Routes () {
         <Route path="/cliente/details/:idCliente" exact component={ClienteUpdate}/>
         <Route path="/cliente/update/:idCliente" exact component={ClienteUpdate}/>
 
-         {/* Rota medico */}
-         <Route path="/cliente/" exact component={Cliente}/>
-         <Route path="/cliente/create" exact component={ClienteCreate}/>
-         <Route path="/cliente/update/:idCliente" exact component={ClienteUpdate}/>
-
-        {/* Rota Cliente */}
+        {/* Rota Consulta */}
         <Route path="/consulta" exact component={Consulta}/>
         <Route path="/consulta/create" exact component={ConsultaCreate}/>
 

@@ -70,9 +70,11 @@ export default function AddressForm() {
     }
     const response = await api.post('/api/consulta',data) 
 
-    console.log(response)
-
-    //console.log(data)
+    if(response.status === 200) {
+      window.location.href='/consulta'
+    } else {
+      alert('Erro ao cadastrar o consulta')
+    }
   }
 
 
@@ -82,11 +84,11 @@ export default function AddressForm() {
 
   const classes = useStyles();
   return (
-    <Layout titlePage="Cliente">
+    <Layout titlePage="Consultas">
     
     <React.Fragment>
       <Typography variant="h6" gutterBottom>
-        Fomulario de cadastro de cliente
+        Fomulario de cadastro de consulta
       </Typography>
       <Grid container spacing={3}>
         <Grid item xs={12}>
