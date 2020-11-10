@@ -2,8 +2,13 @@ const consulta = require('../models/consultas.model')
 
 
 const index = async (req, res) => {
-    const result = await consulta.findAll()   
-    res.json(result)
+    try {
+        const result = await consulta.findAll()   
+        res.status(200).json(result)
+    } catch(err) {
+        console.log('usuario não cadastrado')
+        res.status(500).json(err)
+    }
 }
 
 const create = async (req, res) => {

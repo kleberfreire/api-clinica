@@ -22,7 +22,6 @@ const findAll = async () => {
       ...consulta,
       cliente: clienteAux,
       medico: medicoAux,
-
     })
   }
 
