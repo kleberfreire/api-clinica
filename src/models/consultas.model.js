@@ -16,8 +16,8 @@ const findAll = async () => {
 
     const cliente = await consulta.cliente.get()
     const medico = await consulta.medico.get()
-    const clienteAux = { ...cliente.data()}
-    const medicoAux = {...medico.data()}
+    const clienteAux = { id: cliente.id, ...cliente.data()}
+    const medicoAux = { id: medico.id, ...medico.data()}
     consultaFilted.push({
       ...consulta,
       cliente: clienteAux,

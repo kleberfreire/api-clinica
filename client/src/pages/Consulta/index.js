@@ -12,7 +12,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
 
-import {Delete, Description, Search } from '@material-ui/icons/'
+import {Delete, Description} from '@material-ui/icons/'
 
 import api from '../../services/api'
 
@@ -36,12 +36,10 @@ export default function AddressForm() {
       if(getConsulta.status === 200) {
         await setConsultaList(getConsulta.data)
       } 
-
     }   
     
     fetchData()
-    // console.log('medicos',medicoList)
-    // console.log('cliente',clienteList)
+    
   }, [])
 
   function createData(name, calories, fat, carbs, protein) {
@@ -93,7 +91,6 @@ export default function AddressForm() {
                     
                     <Link href="/consulta"><Description /></Link>
                     
-                    <Link href="/consulta"><Search /></Link>
                   </TableCell>
                 </TableRow>
               ))}
