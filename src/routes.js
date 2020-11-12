@@ -28,8 +28,8 @@ routes.get('/api/medicos/pagina/:id', medicoController.paginated)
 routes.get('/api/consulta', consultaController.index)
 routes.post('/api/consulta', consultaController.create)
 routes.get('/api/consulta/findOne/:id', consultaController.findOne)
-routes.get('/api/consulta/remove/:id', consultaController.remove)
+routes.delete('/api/consulta/:id', consultaController.remove)
 routes.post('/api/consulta/update/:id', consultaController.update)
-routes.get('/api/consulta/pagina/:id', consultaController.paginated)
+
 
 module.exports = routes

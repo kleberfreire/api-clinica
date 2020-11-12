@@ -43,6 +43,18 @@ export default function AddressForm() {
     
   }, [])
 
+  const remove = async (id) => {
+    console.log(id)
+    const response = await api.delete('/api/consulta/'+id ) 
+    if(response.status === 200) {
+      window.location.href='/consulta'
+      console.log('deletado com sucesso')
+    } else {
+      alert('Erro ao excluir o consulta')
+    }
+  }
+
+
   const classes = useStyles();
 
   return (
@@ -77,9 +89,11 @@ export default function AddressForm() {
                   <TableCell align="left">{row.hora}</TableCell>
                   <TableCell align="left">{row.observacao}</TableCell>
                   <TableCell align="left">
-                    <Link href="/api/consulta/remove/"><Delete /></Link>
+                    <Link component="a" onClick={() => {
+                      remove(row.id)
+                    }}><Delete /></Link>
                     
-                    <Link href="/consulta"><Description /></Link>
+                    <Link  href="/consulta"><Description /></Link>
                     
                     <ModalConsulta typeModal={'consulta'} id={row.id}><Search/> </ModalConsulta>
                   </TableCell>
