@@ -11,8 +11,10 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+import Modal from '../../components/Modal'
+import ModalConsulta from '../../components/ModalConsulta'
 
-import {Delete, Description} from '@material-ui/icons/'
+import {Delete, Description, Search} from '@material-ui/icons/'
 
 import api from '../../services/api'
 
@@ -32,7 +34,6 @@ export default function AddressForm() {
   useEffect(() => {
     const fetchData = async () => {
       const getConsulta = await api.get('/api/consulta',)
-      console.log('testesss', getConsulta.data) 
       if(getConsulta.status === 200) {
         await setConsultaList(getConsulta.data)
       } 
@@ -41,18 +42,6 @@ export default function AddressForm() {
     fetchData()
     
   }, [])
-
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
-  }
-  
-  const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-    createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-    createData('Eclair', 262, 16.0, 24, 6.0),
-    createData('Cupcake', 305, 3.7, 67, 4.3),
-    createData('Gingerbread', 356, 16.0, 49, 3.9),
-  ];
 
   const classes = useStyles();
 
@@ -75,30 +64,30 @@ export default function AddressForm() {
                 <TableCell align="left">Medico</TableCell>
                 <TableCell align="left">Data</TableCell>
                 <TableCell align="left">Hora</TableCell>
+                <TableCell align="left">Observação</TableCell>
                 <TableCell align="left">Ações</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {consultaList && consultaList.map((row, index) => (
                 <TableRow key={index}>
-                  <TableCell align="left">{row.cliente.nome}</TableCell>
-                  <TableCell>{row.medico.nome}</TableCell>
+                  <TableCell align="left"><Modal typeModal={'clientes'} id={row.cliente.id}> {row.cliente.nome} </Modal></TableCell>
+                  <TableCell><Modal typeModal={'medicos'} id={row.medico.id}> {row.medico.nome} </Modal></TableCell>
                   <TableCell align="left">{row.data}</TableCell>
                   <TableCell align="left">{row.hora}</TableCell>
-                  
+                  <TableCell align="left">{row.observacao}</TableCell>
                   <TableCell align="left">
-                    <Link href="/"><Delete /></Link>
+                    <Link href="/api/consulta/remove/"><Delete /></Link>
                     
                     <Link href="/consulta"><Description /></Link>
                     
+                    <ModalConsulta typeModal={'consulta'} id={row.id}><Search/> </ModalConsulta>
                   </TableCell>
                 </TableRow>
               ))}
             </TableBody>
           </Table>
         </TableContainer>
-
-
 
 
       </Grid>

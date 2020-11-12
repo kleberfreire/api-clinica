@@ -23,15 +23,13 @@ const create = async (req, res) => {
 }
 
 const findOne = async (req, res) => {
-    try {
+    // try {
         const result = await consulta.findOne(req.params.id)
         res.status(200).json(result)
-    } catch (erro) {
-        console.log('usuario não encontrado')
-        res.status(500).json(err)
-    }
-    
-    res.json(result)
+    // } catch (erro) {
+    //     console.log('usuario não encontrado')
+    //     res.status(500).json(erro)
+    // }
 }
 
 const remove = async (req, res) => {

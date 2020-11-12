@@ -27,7 +27,7 @@ export default function Routes () {
         {/* Rota Consulta */}
         <Route path="/consulta" exact component={Consulta}/>
         <Route path="/consulta/create" exact component={ConsultaCreate}/>
-
+    
         {/* Rota Cliente */}
         <Route path="/medico" exact component={Medico}/>
         <Route path="/medico/create" exact component={MedicoCreate}/>

@@ -25,8 +25,7 @@ const findOne = async (req, res) => {
         console.log('usuario não encontrado')
         res.status(500).json(err)
     }
-    
-    res.json(result)
+
 }
 
 const remove = async (req, res) => {

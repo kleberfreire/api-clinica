@@ -83,8 +83,28 @@ const findAllPaginated = async ({ pageSize = 10, startAfter = '' }) => {
 
 const findOne = async(id) => {
   const consultaDB = await db.collection(COLLECTION_NAME).doc(id).get()
-  console.log(consultaDB.data())
-  return consultaDB.data()
+  // console.log(consultaDB.data())
+  
+  if(consultaDB.empty) {
+    return []
+  }
+
+
+  const cliente = await consultaDB.data().cliente.get()
+  
+  const medico = await consultaDB.data().medico.get()
+  const clienteAux = { id: cliente.id, ...cliente.data()}
+  const medicoAux = { id: medico.id, ...medico.data()}
+  
+  const consultaAllData = {
+    id: consultaDB.id,
+    ...consultaDB.data(),
+    medico: clienteAux,
+    cliente: medicoAux,
+  }
+
+  return consultaAllData
+
 }
 
 const create =async({cliente, medico, ...data}) => {
