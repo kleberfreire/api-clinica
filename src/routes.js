@@ -14,7 +14,7 @@ routes.get('/', (req, res) => {
 routes.get('/api/clientes', clienteController.index)
 routes.post('/api/clientes', clienteController.create)
 routes.get('/api/clientes/findOne/:id', clienteController.findOne)
-routes.get('/api/clientes/remove/:id', clienteController.remove)
+routes.delete('/api/clientes/:id', clienteController.remove)
 routes.post('/api/clientes/update/:id', clienteController.update)
 routes.get('/api/clientes/pagina/:id', clienteController.paginated)
 

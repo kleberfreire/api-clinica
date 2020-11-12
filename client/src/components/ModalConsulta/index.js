@@ -112,7 +112,7 @@ export default function CustomizedDialogs({children, typeModal, id}) {
   };
 
   return (
-    <div>
+    <>
       <Link variant="outlined" color="primary" onClick={handleClickOpen}>
         {children}
       </Link>
@@ -129,7 +129,7 @@ export default function CustomizedDialogs({children, typeModal, id}) {
         </DialogContent>
 
       </Dialog>
-    </div>
+    </>
   );
 }
 

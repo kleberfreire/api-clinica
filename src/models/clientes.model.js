@@ -56,7 +56,7 @@ const findAllPaginated = async ({ pageSize = 10, startAfter = '' }) => {
 
 const findOne = async(id) => {
   const clientesDB = await db.collection(COLLECTION_NAME).doc(id).get()
-  console.log(clientesDB.data())
+  console.log('cliente FindOne', clientesDB.data())
   return clientesDB.data()
 }
 

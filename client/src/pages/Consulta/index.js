@@ -93,7 +93,7 @@ export default function AddressForm() {
                       remove(row.id)
                     }}><Delete /></Link>
                     
-                    <Link  href="/consulta"><Description /></Link>
+                    <Link  href={'/consulta/update/' + row.id}><Description /></Link>
                     
                     <ModalConsulta typeModal={'consulta'} id={row.id}><Search/> </ModalConsulta>
                   </TableCell>

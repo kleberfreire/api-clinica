@@ -99,8 +99,8 @@ const findOne = async(id) => {
   const consultaAllData = {
     id: consultaDB.id,
     ...consultaDB.data(),
-    medico: clienteAux,
-    cliente: medicoAux,
+    cliente: clienteAux,
+    medico: medicoAux,
   }
 
   return consultaAllData
