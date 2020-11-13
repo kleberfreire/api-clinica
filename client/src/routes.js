@@ -13,6 +13,7 @@ import ConsultaUpdate from './pages/Consulta/ConsultaUpdate'
 
 import Medico from './pages/Medico'
 import MedicoCreate from './pages/Medico/MedicoCreate'
+import MedicoUpdate from './pages/Medico/MedicoUpdate'
 
 export default function Routes () {
   return (
@@ -22,7 +23,6 @@ export default function Routes () {
         {/* Rota Cliente */}
         <Route path="/cliente" exact component={Cliente}/>
         <Route path="/cliente/create" exact component={ClienteCreate}/>
-        <Route path="/cliente/details/:id" exact component={ClienteUpdate}/>
         <Route path="/cliente/update/:id" exact component={ClienteUpdate}/>
 
         {/* Rota Consulta */}
@@ -32,6 +32,7 @@ export default function Routes () {
         {/* Rota Cliente */}
         <Route path="/medico" exact component={Medico}/>
         <Route path="/medico/create" exact component={MedicoCreate}/>
+        <Route path="/medico/update/:id" exact component={MedicoUpdate}/>
 
       </Switch>
     </BrowserRouter>

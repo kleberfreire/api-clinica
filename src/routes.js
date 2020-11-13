@@ -21,7 +21,7 @@ routes.get('/api/clientes/pagina/:id', clienteController.paginated)
 routes.get('/api/medicos', medicoController.index)
 routes.post('/api/medicos', medicoController.create)
 routes.get('/api/medicos/findOne/:id', medicoController.findOne)
-routes.get('/api/medicos/remove/:id', medicoController.remove)
+routes.delete('/api/medicos/:id', medicoController.remove)
 routes.post('/api/medicos/update/:id', medicoController.update)
 routes.get('/api/medicos/pagina/:id', medicoController.paginated)
 

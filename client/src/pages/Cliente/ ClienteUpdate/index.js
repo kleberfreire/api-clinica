@@ -35,7 +35,7 @@ export default function AddressForm() {
     }
 
     fetchData()
-  }, [])
+  }, [id])
 
 
 
@@ -45,7 +45,8 @@ export default function AddressForm() {
       email: email,
       telefone: telefone,
     }
-    const response = await api.post('/api/clientes',data) 
+
+    const response = await api.post('/api/clientes/update/'+id,data) 
 
     if(response.status === 200) {
       window.location.href='/cliente'
