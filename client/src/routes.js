@@ -2,7 +2,7 @@ import React from 'react'
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-import Dashboard from './pages/Layout'
+import Dashboard from './pages/Dashboard'
 import Cliente from './pages/Cliente'
 import ClienteUpdate from './pages/Cliente/ ClienteUpdate'
 import ClienteCreate from './pages/Cliente/ ClienteCreate'

@@ -133,11 +133,41 @@ const remove =async(id) => {
   const consultaDB = await db.collection(COLLECTION_NAME).doc(id).delete()
 }
 
+const findAllOrderByData = async () => {
+  const consultaDB = await db.collection(COLLECTION_NAME).orderBy('data').get()
+  if(consultaDB.empty) {
+    return []
+  }
+  const consultas = []
+
+  consultaDB.forEach(doc => {
+    consultas.push({id: doc.id, ...doc.data()})
+  })
+  const consultaFilted = []
+  for await (consulta of consultas) {
+
+    const cliente = await consulta.cliente.get()
+    const medico = await consulta.medico.get()
+    const clienteAux = { id: cliente.id, ...cliente.data()}
+    const medicoAux = { id: medico.id, ...medico.data()}
+    consultaFilted.push({
+      ...consulta,
+      cliente: clienteAux,
+      medico: medicoAux,
+    })
+  }
+
+  return consultaFilted
+}
+
+
+
 module.exports = {
   findAll,
   findOne,
   update,
   create,
   remove,
-  findAllPaginated
+  findAllPaginated,
+  findAllOrderByData
 }

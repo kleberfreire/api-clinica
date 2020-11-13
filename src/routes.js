@@ -30,6 +30,7 @@ routes.post('/api/consulta', consultaController.create)
 routes.get('/api/consulta/findOne/:id', consultaController.findOne)
 routes.delete('/api/consulta/:id', consultaController.remove)
 routes.post('/api/consulta/update/:id', consultaController.update)
+routes.get('/api/consulta/findData', consultaController.findAllOrderByData)
 
 
 module.exports = routes

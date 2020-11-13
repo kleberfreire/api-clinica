@@ -70,6 +70,16 @@ const paginated = async (req, res) => {
 
 }
 
+const findAllOrderByData = async (req, res) => {
+    try {
+        const result = await consulta.findAllOrderByData()   
+        res.status(200).json(result)
+    } catch(err) {
+        console.log('usuario não cadastrado')
+        res.status(500).json(err)
+    }
+}
+
 
 
 module.exports = {
@@ -78,5 +88,6 @@ module.exports = {
     remove,
     update,
     findOne,
-    paginated
+    paginated,
+    findAllOrderByData
 }
